@@ -30,6 +30,7 @@ Repository for Jubatus Hackason at 11, 12 November 2016.
   * データの使い方を決めておく
 
 ## 銀座の母
+![銀座の母](https://github.com/kawasaki-kk/Jubatus_hackason/blob/readme/20161101_%E3%83%A9%E3%83%B3%E3%83%81%E3%83%9F%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0.png)
 ### 機能と仕様
 * 発言小町の記事推薦
   * 発言小町の解析
