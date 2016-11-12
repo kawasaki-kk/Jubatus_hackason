@@ -4,10 +4,11 @@
 import os
 from jubatus.common import Datum
 
-from komachi.juba_abstract import QiitaRecommender
-from qiita.services import load_json
-from qiita.mecab import get_AllNouns
+from juba_abstract import KomachiRecommender
+from services import load_json
+from mecab import get_AllNouns
 
+DATA_FILE_DIR = "../data/"
 
 def recommend_Komachi(content, recommend_num=4, learned_file_name=""):
     # 日報本文を受け取り、出現する名詞とその出現回数のDatumをクエリとして、
@@ -35,9 +36,7 @@ def recommend_Komachi(content, recommend_num=4, learned_file_name=""):
     for article in similar_komachi_articles:
         # 類似記事のid＝ファイル名から、類似記事のデータをロード
         item = load_json(
-            os.path.join(
-                os.path.dirname(os.path.abspath(__file__)),
-                "data/items"),
+            os.path.join(os.path.dirname(os.path.abspath(__file__)), DATA_FILE_DIR),
             article.id)
         # データから、各情報をappend
         data.append({

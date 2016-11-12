@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import sys
 
 from jubatus.common import Datum
 from progressbar import ProgressBar
@@ -7,7 +8,9 @@ from juba_abstract import KomachiRecommender
 from services import load_json, get_all_files
 from mecab import get_AllNouns
 
-DATA_FILE_DIR = "./data/items/"
+DATA_FILE_DIR = "../data/"
+#sys.path.append(DATA_FILE_DIR)
+
 
 if __name__ == '__main__':
     # Jubatus recommenderサーバに接続して、
@@ -29,11 +32,11 @@ if __name__ == '__main__':
         data = load_json(DATA_FILE_DIR, file_name)
         # print(data["title"])
         datum = Datum(
-            get_AllNouns(data["body"])  # body内に出現する名詞と、その出現回数の辞書をDatumとして作成
+            get_AllNouns(data["message"])  # body内に出現する名詞と、その出現回数の辞書をDatumとして作成
         )
 
         # サーバにアップロード
         recommender.update_row(file_name, datum)
 
         # プログレスバー表示
-        progress.update(i + 1)¥
+        progress.update(i + 1)
