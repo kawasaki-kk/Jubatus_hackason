@@ -4,13 +4,13 @@
 import os
 from jubatus.common import Datum
 
-from juba_abstract import KomachiRecommender
-from services import load_json
-from mecab import get_AllNouns
+from .juba_abstract import KomachiRecommender
+from .services import load_json
+from .mecab import get_AllNouns
 
 DATA_FILE_DIR = "../data/"
 
-def recommend_Komachi(content, recommend_num=4, learned_file_name=""):
+def recommend_Komachi(content, recommend_num=1, learned_file_name=""):
     # 日報本文を受け取り、出現する名詞とその出現回数のDatumをクエリとして、
     # Jubatus recomenderから類似記事を取得する。
     #

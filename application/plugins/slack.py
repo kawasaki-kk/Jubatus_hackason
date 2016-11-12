@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
+import os
+import sys
 from slackbot.bot import respond_to, listen_to
+
+# sys.path.append( "../../jubatus/" )
+from .jubatus.juba_analyze import recommend_Komachi
 
 class Reply:
     def __init__(self):
@@ -14,7 +19,10 @@ r = Reply()
 def refrection(message, something):
     count = r.increase()
     if count % 3 == 0:
-        count = str(count)
-        message.reply(count)
+        #count = str(count)
+        #message.reply(count)
+        recommend = recommend_Komachi(something)
+        print(recommend)
+        message.reply(*recommend)
     else:
         message.reply('それで？')
