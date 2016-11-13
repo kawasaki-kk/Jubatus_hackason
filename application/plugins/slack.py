@@ -19,8 +19,6 @@ r = Reply()
 def refrection(message, something):
     count = r.increase()
     if count % 3 == 0:
-        #count = str(count)
-        #message.reply(count)
         recommend = recommend_Komachi(something)
         print(recommend)
         message.reply(*recommend)
