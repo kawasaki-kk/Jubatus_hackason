@@ -42,13 +42,15 @@ def recommend_Komachi(content, recommend_num=1, learned_file_name=""):
         #    os.path.join(os.path.dirname(os.path.abspath(__file__)), DATA_FILE_DIR),
         #    article.id)
         
+        # print('Datum', recommender.decode_row(article.id))
+        # print('String',recommender.decode_row(article.id).string_values[0][1])
         # データから、各情報をappend
-        # data.append({
-        #    "title": item["title"],
+        data.append({
+            "title": article.id,
         #    "score": article.score,
-        #    "url": item["url"]
+            "url": recommender.decode_row(article.id).string_values[0][1]
         #    #"tags": item["tags"]
-        #})
-        data.append(article.id)
+        })
+        #data.append(article.id) #comment out 11:16
     #return data
     return data
