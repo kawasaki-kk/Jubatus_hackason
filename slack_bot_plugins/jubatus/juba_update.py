@@ -5,8 +5,11 @@ from jubatus.common import Datum
 from progressbar import ProgressBar
 import json
 
-from juba_abstract import KomachiRecommender
-from mecab import get_AllNouns
+from slack_bot_plugin.jubatus.juba_abstract import KomachiRecommender
+from slack_bot_plugin.jubatus.mecab import get_AllNouns
+
+# from juba_abstract import KomachiRecommender
+# from mecab import get_AllNouns
 
 DATA_FILE_DIR = "../../../data/"
 #sys.path.append(DATA_FILE_DIR)

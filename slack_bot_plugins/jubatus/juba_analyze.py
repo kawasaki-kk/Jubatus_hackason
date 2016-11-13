@@ -4,9 +4,9 @@
 import os
 from jubatus.common import Datum
 
-from .juba_abstract import KomachiRecommender
-from .services import load_json
-from .mecab import get_AllNouns
+from slack_bot_plugins.jubatus.juba_abstract import KomachiRecommender
+from slack_bot_plugins.jubatus.services import load_json
+from slack_bot_plugins.jubatus.mecab import get_AllNouns
 
 DATA_FILE_DIR = "../data/"
 

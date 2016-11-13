@@ -4,7 +4,7 @@ import sys
 from slackbot.bot import respond_to, listen_to
 
 # sys.path.append( "../../jubatus/" )
-from .jubatus.juba_analyze import recommend_Komachi
+from slack_bot_plugins.jubatus.juba_analyze import recommend_Komachi
 
 class Reply:
     def __init__(self):
@@ -21,7 +21,7 @@ def refrection(message, something):
     statements.append(something)
     count = r.increase()
     if count % 3 == 0:
-        recommend = recommend_Komachi(statements)
+        recommend = recommend_Komachi("".join(statements))
         print(recommend)
         # print(recommend.url)
         message.reply(recommend[0]['title'])
