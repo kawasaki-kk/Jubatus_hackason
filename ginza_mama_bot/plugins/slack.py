@@ -24,5 +24,5 @@ def refrection(message, something):
         recommend = recommend_Komachi(statements)
         print(recommend)
         message.reply(*recommend)
-    else:
-        message.reply('それで？')
+    elif count % 3 == 0:
+        message.reply('そうかしら？')
