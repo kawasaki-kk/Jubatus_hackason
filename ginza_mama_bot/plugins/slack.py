@@ -14,6 +14,7 @@ class Reply:
         self.counter += 1
         return self.counter
 r = Reply()
+statements = []
 
 @listen_to('(.*)')
 def refrection(message, something):
