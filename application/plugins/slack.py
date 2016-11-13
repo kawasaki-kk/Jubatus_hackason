@@ -14,12 +14,14 @@ class Reply:
         self.counter += 1
         return self.counter
 r = Reply()
+statements = []
 
 @listen_to('(.*)')
 def refrection(message, something):
+    statements.append(something)
     count = r.increase()
     if count % 3 == 0:
-        recommend = recommend_Komachi(something)
+        recommend = recommend_Komachi(statements)
         print(recommend)
         # print(recommend.url)
         message.reply(recommend[0]['title'])
