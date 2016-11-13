@@ -8,7 +8,7 @@ import json
 from juba_abstract import KomachiRecommender
 from mecab import get_AllNouns
 
-DATA_FILE_DIR = "../data/"
+DATA_FILE_DIR = "../../../data/"
 #sys.path.append(DATA_FILE_DIR)
 
 
@@ -32,9 +32,15 @@ if __name__ == '__main__':
         # 指定したディレクトリ内の全ファイルを読み込んで、
         data = json.loads(json_file)
         # print(data["title"])
-        datum = Datum(
-            get_AllNouns(data["message"])  # body内に出現する名詞と、その出現回数の辞書をDatumとして作成
-        )
+        # print(data["url"])
+        dic = {}
+        dic.update(get_AllNouns(data["message"]))
+        dic.update({"url": data["url"]})
+        print(dic)
+        datum = Datum(dic)
+        # datum = Datum(    
+        #     get_AllNouns(data["message"])  # body内に出現する名詞と、その出現回数の辞書をDatumとして作成
+        # )
 
         # サーバにアップロード
         recommender.update_row(data["title"], datum)
